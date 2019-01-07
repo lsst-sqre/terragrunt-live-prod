@@ -4,17 +4,17 @@ DL_DIR = downloads
 ARCH = amd64
 TF_PLUG_DIR := .terraform/plugins/$(UNAME)_$(ARCH)
 
-TF_VER = 0.11.10
+TF_VER = 0.11.11
 TF_ZIP_FILE := terraform_$(TF_VER)_$(UNAME)_$(ARCH).zip
 TF_ZIP_DL := $(DL_DIR)/$(TF_ZIP_FILE)
 TF_BIN := $(BIN_DIR)/terraform
 
-TG_VER = 0.17.3
+TG_VER = 0.17.4
 TG_FILE := terragrunt_$(UNAME)_$(ARCH)
 TG_FILE_DL := $(DL_DIR)/$(TG_FILE)-v$(TG_VER)
 TG_BIN := $(BIN_DIR)/terragrunt
 
-HELM_VER = 2.9.0
+HELM_VER = 2.11.0
 HELM_ZIP_FILE := helm-v$(HELM_VER)-$(UNAME)-$(ARCH).tar.gz
 HELM_ZIP_DL := $(DL_DIR)/$(HELM_ZIP_FILE)
 HELM_BIN := $(BIN_DIR)/helm
