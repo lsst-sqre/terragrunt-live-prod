@@ -22,6 +22,8 @@ Prod Deployments
 
 - [`efd-kafka`](prod/efd-kafka)
 - [`gitlfs`](prod/gitlfs)
+- [`scipipe-publish`](prod/scipipe-publish) (formerly: `publish-release`)
+
 
 See Also
 ---
