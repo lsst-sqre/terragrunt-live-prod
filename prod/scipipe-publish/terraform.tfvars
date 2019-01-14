@@ -34,6 +34,5 @@ terragrunt = {
 aws_zone_id = "Z3TH0HRSNU67AM"
 domain_name = "lsst.codes"
 env_name = "prod"
-deploy_name = "publish-release"
 google_project = "plasma-geode-127520"
 pkgroot_storage_size = "2Ti"
