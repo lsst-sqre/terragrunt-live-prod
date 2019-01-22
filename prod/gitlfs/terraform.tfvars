@@ -70,12 +70,9 @@ terragrunt = {
   } # terraform
 }
 
-aws_zone_id = "Z3TH0HRSNU67AM"
 deploy_name = "gitlfs"
 dns_enable = true
-domain_name = "lsst.codes"
 env_name = "prod"
 github_org = "lsst"
 gitlfs_image = "docker.io/lsstsqre/gitlfs-server:gf8df52a"
-google_project = "plasma-geode-127520"
 s3_force_destroy = false
