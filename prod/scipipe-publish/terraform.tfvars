@@ -35,9 +35,6 @@ terragrunt = {
   } # terraform
 }
 
-aws_zone_id = "Z3TH0HRSNU67AM"
-domain_name = "lsst.codes"
-env_name = "prod"
 dns_enable = true
-google_project = "plasma-geode-127520"
+env_name = "prod"
 pkgroot_storage_size = "2Ti"
