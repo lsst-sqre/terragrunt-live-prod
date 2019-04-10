@@ -85,7 +85,6 @@ terragrunt = {
 }
 
 env_name = "prod"
-gke_version = "1.11.7-gke.12"
 dns_enable = true
 grafana_oauth_client_id = ""
 grafana_oauth_client_secret = ""
