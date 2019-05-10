@@ -97,3 +97,5 @@ grafana_oauth_team_ids = "1936535"
 influxdb_admin_pass = ""
 influxdb_admin_user = ""
 influxdb_telegraf_pass = ""
+initial_node_count = 4
+machine_type = "n1-standard-4"
