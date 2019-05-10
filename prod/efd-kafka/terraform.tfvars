@@ -84,14 +84,15 @@ terragrunt = {
   } # terraform
 }
 
-env_name = "prod"
+# keep `sort`d
 dns_enable = true
+env_name = "prod"
+github_token = ""
+github_user = ""
+grafana_admin_pass = ""
+grafana_admin_user = ""
 grafana_oauth_client_id = ""
 grafana_oauth_client_secret = ""
 grafana_oauth_team_ids = "1936535"
-grafana_admin_user = ""
-grafana_admin_pass = ""
-influxdb_admin_user = ""
 influxdb_admin_pass = ""
-github_user = ""
-github_token = ""
+influxdb_admin_user = ""
