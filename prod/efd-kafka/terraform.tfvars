@@ -99,3 +99,6 @@ influxdb_admin_user = ""
 influxdb_telegraf_pass = ""
 initial_node_count = 4
 machine_type = "n1-standard-4"
+prometheus_oauth_client_id = ""
+prometheus_oauth_client_secret = ""
+prometheus_oauth_github_org = "lsst-sqre"
