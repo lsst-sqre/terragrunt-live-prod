@@ -4,7 +4,7 @@ terragrunt = {
   }
 
   terraform {
-    source = "git::https://github.com/lsst-sqre/terraform-efd-kafka.git//?ref=master"
+    source = "git::https://github.com/lsst-sqre/terraform-efd-gke.git//?ref=master"
     # for development it is useful to use a local path
     # source = "../../../terraform-efd-kafka"
     extra_arguments "moar_faster" {
@@ -89,6 +89,7 @@ dns_enable = true
 env_name = "prod"
 github_token = ""
 github_user = ""
+gke_version = "1.12"
 grafana_admin_pass = ""
 grafana_admin_user = ""
 grafana_oauth_client_id = ""
