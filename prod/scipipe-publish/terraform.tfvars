@@ -35,6 +35,8 @@ terragrunt = {
   } # terraform
 }
 
+# keep `sort -u`d
 dns_enable = true
 env_name = "prod"
+gke_version = "1.11"
 pkgroot_storage_size = "2Ti"
