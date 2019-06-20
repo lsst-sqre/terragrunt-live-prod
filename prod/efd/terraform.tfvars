@@ -4,7 +4,7 @@ terragrunt = {
   }
 
   terraform {
-    source = "git::https://github.com/lsst-sqre/terraform-efd-gke.git//?ref=master"
+    source = "git::https://github.com/lsst-sqre/terraform-efd-gke.git//?ref=2.0.0"
     # for development it is useful to use a local path
     # source = "../../../terraform-efd-kafka"
     extra_arguments "moar_faster" {
@@ -35,7 +35,7 @@ terragrunt = {
     before_hook "1_helm_init" {
       commands = ["${get_terraform_commands_that_need_locking()}"]
       execute = [
-        "helm", "init", "--home", "${get_tfvars_dir()}/.helm", "--client-only",
+        "helm", "--home", "${get_tfvars_dir()}/.helm", "init", "--client-only",
       ]
       run_on_error = false
     }
@@ -43,7 +43,7 @@ terragrunt = {
     before_hook "2_helm_update" {
       commands = ["init"]
       execute = [
-        "helm", "repo", "--home", "${get_tfvars_dir()}/.helm", "update"
+        "helm", "--home", "${get_tfvars_dir()}/.helm", "repo", "update",
       ]
       run_on_error = false
     }
@@ -54,7 +54,7 @@ terragrunt = {
     before_hook "3_helm_repo_add" {
       commands = ["${get_terraform_commands_that_need_locking()}"]
       execute = [
-        "helm", "repo", "add", "confluentinc",
+        "helm", "--home", "${get_tfvars_dir()}/.helm", "repo", "add", "confluentinc",
         "https://raw.githubusercontent.com/lsst-sqre/cp-helm-charts/master"
       ]
       run_on_error = false
@@ -63,7 +63,7 @@ terragrunt = {
     before_hook "4_helm_repo_add" {
           commands = ["${get_terraform_commands_that_need_locking()}"]
           execute = [
-            "helm", "repo", "add", "lsstsqre",
+            "helm", "--home", "${get_tfvars_dir()}/.helm", "repo", "add", "lsstsqre",
             "https://lsst-sqre.github.io/charts/"
           ]
           run_on_error = false
