@@ -55,7 +55,7 @@ terragrunt = {
       commands = ["${get_terraform_commands_that_need_locking()}"]
       execute = [
         "helm", "--home", "${get_tfvars_dir()}/.helm", "repo", "add", "confluentinc",
-        "https://raw.githubusercontent.com/lsst-sqre/cp-helm-charts/master"
+        "https://raw.githubusercontent.com/lsst-sqre/cp-helm-charts/0.1.1"
       ]
       run_on_error = false
     }
