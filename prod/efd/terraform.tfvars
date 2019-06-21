@@ -4,7 +4,7 @@ terragrunt = {
   }
 
   terraform {
-    source = "git::https://github.com/lsst-sqre/terraform-efd-gke.git//?ref=2.0.0"
+    source = "git::https://github.com/lsst-sqre/terraform-efd-gke.git//?ref=3.0.0"
     # for development it is useful to use a local path
     # source = "../../../terraform-efd-kafka"
     extra_arguments "moar_faster" {
@@ -55,7 +55,7 @@ terragrunt = {
       commands = ["${get_terraform_commands_that_need_locking()}"]
       execute = [
         "helm", "--home", "${get_tfvars_dir()}/.helm", "repo", "add", "confluentinc",
-        "https://raw.githubusercontent.com/lsst-sqre/cp-helm-charts/master"
+        "https://raw.githubusercontent.com/lsst-sqre/cp-helm-charts/0.1.1"
       ]
       run_on_error = false
     }
