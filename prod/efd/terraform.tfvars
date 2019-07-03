@@ -61,14 +61,13 @@ terragrunt = {
     }
 
     before_hook "4_helm_repo_add" {
-          commands = ["${get_terraform_commands_that_need_locking()}"]
-          execute = [
-            "helm", "--home", "${get_tfvars_dir()}/.helm", "repo", "add", "lsstsqre",
-            "https://lsst-sqre.github.io/charts/"
-          ]
-          run_on_error = false
-        }
-
+      commands = ["${get_terraform_commands_that_need_locking()}"]
+      execute = [
+        "helm", "--home", "${get_tfvars_dir()}/.helm", "repo", "add", "lsstsqre",
+        "https://lsst-sqre.github.io/charts/"
+      ]
+      run_on_error = false
+    }
 
     extra_arguments "tls" {
       commands = ["${get_terraform_commands_that_need_vars()}"]
