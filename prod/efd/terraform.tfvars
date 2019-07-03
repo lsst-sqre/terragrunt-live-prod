@@ -74,6 +74,6 @@ terragrunt = {
 # keep `sort`d
 dns_enable = true
 env_name = "prod"
-gke_version = "1.12"
+gke_version = "1.13.6-gke.13"
 initial_node_count = 4
 machine_type = "n1-standard-4"
