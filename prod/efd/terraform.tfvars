@@ -4,7 +4,7 @@ terragrunt = {
   }
 
   terraform {
-    source = "git::https://github.com/lsst-sqre/terraform-efd-gke.git//?ref=3.1.0"
+    source = "git::https://github.com/lsst-sqre/terraform-efd-gke.git//?ref=4.0.0"
     # for development it is useful to use a local path
     # source = "../../../terraform-efd-kafka"
     extra_arguments "moar_faster" {
@@ -61,25 +61,12 @@ terragrunt = {
     }
 
     before_hook "4_helm_repo_add" {
-          commands = ["${get_terraform_commands_that_need_locking()}"]
-          execute = [
-            "helm", "--home", "${get_tfvars_dir()}/.helm", "repo", "add", "lsstsqre",
-            "https://lsst-sqre.github.io/charts/"
-          ]
-          run_on_error = false
-        }
-
-
-    extra_arguments "tls" {
-      commands = ["${get_terraform_commands_that_need_vars()}"]
-
-      env_vars = {
-        # get_parent_tfvars_dir() is broken when used from a child .tfvars and
-        # returns the child path instead of the parent
-        # https://github.com/gruntwork-io/terragrunt/issues/332
-        TF_VAR_tls_crt_path = "${get_parent_tfvars_dir()}/../../lsst-certs/lsst.codes/2018/lsst.codes_chain.pem"
-        TF_VAR_tls_key_path = "${get_parent_tfvars_dir()}/../../lsst-certs/lsst.codes/2018/lsst.codes.key"
-      }
+      commands = ["${get_terraform_commands_that_need_locking()}"]
+      execute = [
+        "helm", "--home", "${get_tfvars_dir()}/.helm", "repo", "add", "lsstsqre",
+        "https://lsst-sqre.github.io/charts/"
+      ]
+      run_on_error = false
     }
   } # terraform
 }
@@ -87,19 +74,6 @@ terragrunt = {
 # keep `sort`d
 dns_enable = true
 env_name = "prod"
-github_token = ""
-github_user = ""
-gke_version = "1.12"
-grafana_admin_pass = ""
-grafana_admin_user = ""
-grafana_oauth_client_id = ""
-grafana_oauth_client_secret = ""
-grafana_oauth_team_ids = "1936535"
-influxdb_admin_pass = ""
-influxdb_admin_user = ""
-influxdb_telegraf_pass = ""
+gke_version = "1.13.6-gke.13"
 initial_node_count = 4
 machine_type = "n1-standard-4"
-prometheus_oauth_client_id = ""
-prometheus_oauth_client_secret = ""
-prometheus_oauth_github_org = "lsst-sqre"
