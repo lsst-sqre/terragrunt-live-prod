@@ -4,7 +4,7 @@ terragrunt = {
   }
 
   terraform {
-    source = "git::https://github.com/lsst-sqre/terraform-efd-gke.git//?ref=3.1.0"
+    source = "git::https://github.com/lsst-sqre/terraform-efd-gke.git//?ref=4.0.0"
     # for development it is useful to use a local path
     # source = "../../../terraform-efd-kafka"
     extra_arguments "moar_faster" {
