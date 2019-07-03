@@ -20,9 +20,10 @@ terragrunt apply
 Prod Deployments
 ---
 
-- [`efd-kafka`](prod/efd-kafka)
+- [`efd`](prod/efd)
 - [`gitlfs`](prod/gitlfs)
 - [`scipipe-publish`](prod/scipipe-publish) (formerly: `publish-release`)
+- [`tssw-misc`](prod/tssw-misc)
 
 
 See Also
