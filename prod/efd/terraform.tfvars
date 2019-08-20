@@ -75,5 +75,6 @@ terragrunt = {
 dns_enable = true
 env_name = "prod"
 gke_version = "1.13.6-gke.13"
+grafana_oauth_team_ids = "1936535,2003784" # lsst-sqre/friends == 2003784
 initial_node_count = 4
 machine_type = "n1-standard-4"
