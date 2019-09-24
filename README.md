@@ -22,6 +22,7 @@ Prod Deployments
 
 - [`efd`](prod/efd)
 - [`gitlfs`](prod/gitlfs)
+- [`jenkins`](prod/jenkins)
 - [`scipipe-publish`](prod/scipipe-publish) (formerly: `publish-release`)
 - [`tssw-misc`](prod/tssw-misc)
 
