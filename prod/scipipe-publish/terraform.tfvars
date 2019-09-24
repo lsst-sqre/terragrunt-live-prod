@@ -4,35 +4,44 @@ terragrunt = {
   }
 
   terraform {
-    source = "git::https://github.com/lsst-sqre/terraform-scipipe-publish.git//tf/?ref=2.0.0"
+    source = "git::https://github.com/lsst-sqre/terraform-scipipe-publish.git//tf/?ref=3.4.0"
 
-    before_hook "make" {
-      commands = ["init", "init-from-module"]
-
-      run_on_error = false
-
-      execute = [
-        "bash", "-c", "cd ${get_tfvars_dir()}; make"
-      ]
+    # set HELM_HOME to prevent sharing helm state between deployments
+    extra_arguments "helm_vars" {
+      commands = ["${get_terraform_commands_that_need_vars()}"]
+      env_vars = {
+        HELM_HOME = "${get_tfvars_dir()}/.helm"
+      }
     }
 
-    extra_arguments "tls" {
-      commands = ["${get_terraform_commands_that_need_vars()}"]
+    # helm requires manual init
+    before_hook "1_helm_init" {
+      commands = ["${get_terraform_commands_that_need_locking()}"]
+      execute = [
+        "helm", "init", "--home", "${get_tfvars_dir()}/.helm", "--client-only",
+      ]
+      run_on_error = false
+    }
 
-      env_vars = {
-        # get_parent_tfvars_dir() is broken when used from a child .tfvars and
-        # returns the child path instead of the parent
-        # https://github.com/gruntwork-io/terragrunt/issues/332
-        TF_VAR_tls_crt_path = "${get_parent_tfvars_dir()}/../../lsst-certs/lsst.codes/2018/lsst.codes_chain.pem"
-        TF_VAR_tls_key_path = "${get_parent_tfvars_dir()}/../../lsst-certs/lsst.codes/2018/lsst.codes.key"
-        TF_VAR_tls_dhparam_path = "${get_parent_tfvars_dir()}/dhparam.pem"
-      }
+    before_hook "2_helm_update" {
+      commands = ["init"]
+      execute = [
+        "helm", "repo", "--home", "${get_tfvars_dir()}/.helm", "update"
+      ]
+      run_on_error = false
     }
   } # terraform
 }
 
 # keep `sort -u`d
+aws_zone_id = "Z3TH0HRSNU67AM"
 dns_enable = true
+domain_name = "lsst.codes"
 env_name = "prod"
-gke_version = "1.11"
+gke_version = "1.12.7-gke.25"
+google_project = "plasma-geode-127520"
+google_region =  "us-central1"
+google_zone = "us-central1-b"
+grafana_oauth_team_ids = "1936535"
 pkgroot_storage_size = "2Ti"
+prometheus_oauth_github_org = "lsst-sqre"
