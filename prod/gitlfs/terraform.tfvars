@@ -63,8 +63,8 @@ terragrunt = {
         # get_parent_tfvars_dir() is broken when used from a child .tfvars and
         # returns the child path instead of the parent
         # https://github.com/gruntwork-io/terragrunt/issues/332
-        TF_VAR_tls_crt_path = "${get_parent_tfvars_dir()}/../../lsst-certs/lsst.codes/2018/lsst.codes_chain.pem"
-        TF_VAR_tls_key_path = "${get_parent_tfvars_dir()}/../../lsst-certs/lsst.codes/2018/lsst.codes.key"
+        TF_VAR_tls_crt_path = "${get_parent_tfvars_dir()}/../../lsst-certs/lsst.codes/2019/lsst.codes_chain.pem"
+        TF_VAR_tls_key_path = "${get_parent_tfvars_dir()}/../../lsst-certs/lsst.codes/2019/lsst.codes.key"
       }
     }
   } # terraform
