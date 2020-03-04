@@ -4,7 +4,7 @@ terragrunt = {
   }
 
   terraform {
-    source = "git::https://github.com/lsst-sqre/terraform-scipipe-publish.git//tf/?ref=3.4.0"
+    source = "git::https://github.com/lsst-sqre/terraform-scipipe-publish.git//tf/?ref=3.4.1"
 
     # set HELM_HOME to prevent sharing helm state between deployments
     extra_arguments "helm_vars" {
@@ -38,10 +38,10 @@ aws_zone_id = "Z3TH0HRSNU67AM"
 dns_enable = true
 domain_name = "lsst.codes"
 env_name = "prod"
-gke_version = "1.12.7-gke.25"
+gke_version = "1.14.10-gke.24"
 google_project = "plasma-geode-127520"
 google_region =  "us-central1"
 google_zone = "us-central1-b"
 grafana_oauth_team_ids = "1936535"
-pkgroot_storage_size = "2Ti"
+pkgroot_storage_size = "2560Gi"
 prometheus_oauth_github_org = "lsst-sqre"
